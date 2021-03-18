@@ -1,2 +1,3 @@
-/bin/*
-/proj/Finder.pro.user
+bin/*
+build-*
+proj/Finder.pro.user
