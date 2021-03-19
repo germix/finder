@@ -218,6 +218,24 @@
     <string>About</string>
    </property>
   </action>
+  <action name="actionOpenContainerFolder">
+   <property name="icon">
+    <iconset resource="../res/resource.qrc">
+     <normaloff>:/images/choose_folder.png</normaloff>:/images/choose_folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open container folder</string>
+   </property>
+  </action>
+  <action name="actionRename">
+   <property name="icon">
+    <iconset resource="../res/resource.qrc">
+     <normaloff>:/images/rename.png</normaloff>:/images/rename.png</iconset>
+   </property>
+   <property name="text">
+    <string>Rename</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>

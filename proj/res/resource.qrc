@@ -6,5 +6,6 @@
         <file>images/menu-languages.png</file>
         <file>images/choose_folder.png</file>
         <file>MainImage.png</file>
+        <file>images/rename.png</file>
     </qresource>
 </RCC>

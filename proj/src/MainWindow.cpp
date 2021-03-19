@@ -14,6 +14,7 @@
 #include <QMimeDatabase>
 
 #include "AboutDialog.h"
+#include "RenameDialog.h"
 
 #define SETTINGS_APPLICATION "Finder"
 #define SETTINGS_ORGANIZATION "Germix"
@@ -304,12 +305,36 @@ void MainWindow::slotTreeWidget_customContextMenuRequested(const QPoint& pos)
 	if(item)
 	{
 		QMenu menu;
-		QAction* action = new QAction(QIcon(":/images/choose_folder.png"), tr("Open container folder"), &menu);
+		QAction* action;
 
-		menu.addAction(action);
-		if(action == menu.exec(QCursor::pos()))
+		menu.addAction(ui->actionRename);
+		menu.addSeparator();
+		menu.addAction(ui->actionOpenContainerFolder);
+		if(nullptr != (action = menu.exec(QCursor::pos())))
 		{
-			ShowInContainerFolder(item->text(COLUMN_FULLNAME));
+			if(action == ui->actionRename)
+			{
+				RenameDialog dlg(item->text(COLUMN_FILE));
+				if(dlg.exec() == RenameDialog::Accepted)
+				{
+					QString oldFullName = item->text(COLUMN_FULLNAME);
+					QDir dir = QFileInfo(oldFullName).absoluteDir();
+					QString newFullName = dir.absoluteFilePath(dlg.getName());
+
+					if(QFile::rename(oldFullName, newFullName))
+					{
+						ui->treeWidget->clear();
+					}
+					else
+					{
+						QMessageBox::information(this, tr("Rename"), tr("Could not be renamed"), QMessageBox::Ok);
+					}
+				}
+			}
+			else if(action == ui->actionOpenContainerFolder)
+			{
+				ShowInContainerFolder(item->text(COLUMN_FULLNAME));
+			}
 		}
 	}
 }

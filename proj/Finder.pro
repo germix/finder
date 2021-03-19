@@ -49,7 +49,8 @@ SOURCES += \
     src/FindingDialog.cpp \
     src/utils/IconFromFile.cpp \
     src/utils/ShowInContainerFolder.cpp \
-    src/utils/GetFileTypeFromFileInfo.cpp
+    src/utils/GetFileTypeFromFileInfo.cpp \
+    src/RenameDialog.cpp
 
 HEADERS  += \
 		src/MainWindow.h \
@@ -57,12 +58,14 @@ HEADERS  += \
     src/AboutDialog.h \
     src/Languages.h \
     src/Finder.h \
-    src/FindingDialog.h
+    src/FindingDialog.h \
+    src/RenameDialog.h
 
 FORMS    += \
 		src/MainWindow.ui \
     src/AboutDialog.ui \
-    src/FindingDialog.ui
+    src/FindingDialog.ui \
+    src/RenameDialog.ui
 
 #---------------------------------------------------------------------------------------------------
 # Archivos de recursos
