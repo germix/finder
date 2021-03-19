@@ -95,12 +95,18 @@
         <translation>&amp;Seleccionar...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="213"/>
+        <location filename="../src/MainWindow.ui" line="236"/>
+        <location filename="../src/MainWindow.cpp" line="330"/>
+        <source>Rename</source>
+        <translation>Renombrar</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="214"/>
         <source>Size</source>
         <translation>Tamaño</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="213"/>
+        <location filename="../src/MainWindow.cpp" line="214"/>
         <source>Full name</source>
         <translation>Nombre completo</translation>
     </message>
@@ -130,45 +136,73 @@
         <translation>Acerca de</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="213"/>
+        <location filename="../src/MainWindow.cpp" line="214"/>
         <source>File</source>
         <translation>Archivo</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="139"/>
-        <location filename="../src/MainWindow.cpp" line="212"/>
+        <location filename="../src/MainWindow.cpp" line="140"/>
+        <location filename="../src/MainWindow.cpp" line="213"/>
         <source>Languages</source>
         <translation>Idiomas</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="213"/>
+        <location filename="../src/MainWindow.cpp" line="214"/>
         <source>Type</source>
         <translation>Tipo</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="228"/>
+        <location filename="../src/MainWindow.cpp" line="229"/>
         <source>The directory does not exists</source>
         <translation>El directorio no existe</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="259"/>
+        <location filename="../src/MainWindow.cpp" line="260"/>
         <source>Choose directory</source>
         <translation>Seleccionar directorio</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="298"/>
+        <location filename="../src/MainWindow.cpp" line="299"/>
         <source>Open file</source>
         <translation>Abrir archivo</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="298"/>
+        <location filename="../src/MainWindow.cpp" line="299"/>
         <source>Can&apos;t open file</source>
         <translation>No se puede abrir el archivo</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="307"/>
+        <location filename="../src/MainWindow.cpp" line="330"/>
+        <source>Could not be renamed</source>
+        <translation>No se pudo renombrar</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.ui" line="227"/>
         <source>Open container folder</source>
         <translation>Abrir carpeta contenedora</translation>
+    </message>
+</context>
+<context>
+    <name>RenameDialog</name>
+    <message>
+        <location filename="../src/RenameDialog.ui" line="14"/>
+        <source>Rename</source>
+        <translation>Renombrar</translation>
+    </message>
+    <message>
+        <location filename="../src/RenameDialog.ui" line="35"/>
+        <source>Ok</source>
+        <translation>Aceptar</translation>
+    </message>
+    <message>
+        <location filename="../src/RenameDialog.ui" line="42"/>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <location filename="../src/RenameDialog.ui" line="54"/>
+        <source>Name:</source>
+        <translation>Nombre:</translation>
     </message>
 </context>
 </TS>
