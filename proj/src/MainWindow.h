@@ -22,7 +22,6 @@ class MainWindow : public QMainWindow
 {
 	Q_OBJECT
 	Ui::MainWindow*	ui;
-//	QDir			currentDir;
 
 	Languages		languages;
 	QMenu*			menuLanguages;

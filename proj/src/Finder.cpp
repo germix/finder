@@ -1,5 +1,10 @@
 #include "Finder.h"
 #include <QTextStream>
+#include <QApplication>
+
+#define PROCESS_OR_QUIT				\
+	if(hasStopRequest()) return;	\
+	msleep(2);
 
 Finder::Finder() : stopRequest(false)
 {
@@ -48,21 +53,11 @@ void Finder::run()
 
 }
 
-#include <QApplication>
-/*
-#define PROCESS_OR_QUIT				\
-	qApp->processEvents();			\
-	if(hasStopRequest()) return;	\
-	msleep(3);
-*/
-
-#define PROCESS_OR_QUIT				\
-	if(hasStopRequest()) return;	\
-	msleep(2);
-
 void Finder::findInFiles()
 {
-//	qDebug("dir: %ls", dir.absolutePath().constData());
+#if 0
+	qDebug("dir: %ls", dir.absolutePath().constData());
+#endif
 	QStringList files = dir.entryList(nameFilters, (QDir::NoSymLinks|QDir::NoDotAndDotDot)|filters);
 	{
 		QMutexLocker lock(&mutex);
