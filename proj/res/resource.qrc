@@ -7,5 +7,7 @@
         <file>images/choose_folder.png</file>
         <file>MainImage.png</file>
         <file>images/rename.png</file>
+        <file>images/copy.png</file>
+        <file>images/cut.png</file>
     </qresource>
 </RCC>

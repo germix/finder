@@ -12,6 +12,9 @@
 #include <QTextStream>
 #include <QDesktopServices>
 #include <QMimeDatabase>
+#include <QMimeData>
+#include <QClipboard>
+#include <QStatusBar>
 
 #include "AboutDialog.h"
 #include "RenameDialog.h"
@@ -307,12 +310,42 @@ void MainWindow::slotTreeWidget_customContextMenuRequested(const QPoint& pos)
 		QMenu menu;
 		QAction* action;
 
+		menu.addAction(ui->actionCut);
+		menu.addAction(ui->actionCopy);
 		menu.addAction(ui->actionRename);
 		menu.addSeparator();
 		menu.addAction(ui->actionOpenContainerFolder);
 		if(nullptr != (action = menu.exec(QCursor::pos())))
 		{
-			if(action == ui->actionRename)
+			if(action == ui->actionCut || action == ui->actionCopy)
+			{
+				QMimeData* md = new QMimeData();
+				QString fileName = item->text(COLUMN_FILE);
+				QString fullFileName = item->text(COLUMN_FULLNAME);
+
+				QMimeData* mimeData = new QMimeData();
+
+				// store the URL to files which I want to cut
+				QList<QUrl> urls;
+				urls.append(QUrl::fromLocalFile(fullFileName));
+				mimeData->setUrls(urls);
+
+				// store drop effect indicating whether I want to cut or copy
+				int dropEffect = action == ui->actionCut ? 2 : 5;
+				QByteArray data;
+				QDataStream stream(&data, QIODevice::WriteOnly);
+				stream.setByteOrder(QDataStream::LittleEndian);
+				stream << dropEffect;
+				mimeData->setData("Preferred DropEffect", data);
+
+				QApplication::clipboard()->setMimeData(mimeData);
+
+				if(action == ui->actionCut)
+					ui->statusBar->showMessage(tr("Cut \"%1\"").arg(fileName), 1000);
+				else
+					ui->statusBar->showMessage(tr("Copy \"%1\"").arg(fileName), 1000);
+			}
+			else if(action == ui->actionRename)
 			{
 				RenameDialog dlg(item->text(COLUMN_FILE));
 				if(dlg.exec() == RenameDialog::Accepted)
